@@ -94,7 +94,10 @@ const Dashboard: React.FC = () => {
               {transactions.map((tran) => (
                 <tr key={tran.id}>
                   <td className="title">{tran.title}</td>
-                  <td className={tran.type}>{formatValue(tran.value)}</td>
+                  <td className={tran.type}>
+                    {tran.type === 'outcome' && '- '}
+                    {formatValue(tran.value)}
+                  </td>
                   <td>{tran.category.title}</td>
                   <td>{formatDate(new Date(tran.created_at))}</td>
                 </tr>
