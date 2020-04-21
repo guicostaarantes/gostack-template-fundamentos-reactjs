@@ -5,6 +5,7 @@ import { Container, FileInfo } from './styles';
 interface FileProps {
   name: string;
   readableSize: string;
+  inputError: boolean;
 }
 
 interface FileListProps {
@@ -20,6 +21,9 @@ const FileList: React.FC<FileListProps> = ({ files }: FileListProps) => {
             <div>
               <strong>{uploadedFile.name}</strong>
               <span>{uploadedFile.readableSize}</span>
+              {uploadedFile.inputError && (
+                <span>Erro ao subir este arquivo.</span>
+              )}
             </div>
           </FileInfo>
         </li>
